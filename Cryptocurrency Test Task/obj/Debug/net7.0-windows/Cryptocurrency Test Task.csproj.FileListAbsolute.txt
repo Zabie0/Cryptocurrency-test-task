@@ -1,0 +1,43 @@
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Cryptocurrency Test Task.exe
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Cryptocurrency Test Task.deps.json
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Cryptocurrency Test Task.runtimeconfig.json
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Cryptocurrency Test Task.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Cryptocurrency Test Task.pdb
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\System.Net.Http.Formatting.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\System.Web.Http.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Newtonsoft.Json.Bson.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.csproj.AssemblyReference.cache
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainWindow.g.cs
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\App.g.cs
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task_MarkupCompile.cache
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task_MarkupCompile.lref
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainWindow.baml
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.g.resources
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.AssemblyInfoInputs.cache
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.AssemblyInfo.cs
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.csproj.CoreCompileInputs.cache
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.csproj.CopyComplete
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\refint\Cryptocurrency Test Task.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.pdb
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.genruntimeconfig.cache
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\ref\Cryptocurrency Test Task.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.Base.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.Controls.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.DesignerSupport.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.Dialogs.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.Markup.Xaml.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.Markup.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.Metal.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.MicroCom.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.OpenGL.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Avalonia.Remote.Protocol.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\MicroCom.Runtime.dll
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Avalonia\Resources.Inputs.cache
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\CurrencyDetails.g.cs
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\CurrencyDetails.baml
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainPage.g.cs
+D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainPage.baml

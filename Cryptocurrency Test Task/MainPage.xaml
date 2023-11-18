@@ -1,0 +1,40 @@
+﻿<Page x:Class="Cryptocurrency_Test_Task.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cryptocurrency_Test_Task"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListBox Name="currencyListBox" ItemsSource="{Binding Path=Currencies}"
+             SelectedItem="{Binding Path=SelectedCurrency, Mode=OneWayToSource}"
+             Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"></ListBox>
+        <Label Name="currencyListLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Top 10 currencies" FontSize="20"/>
+        <Button Name="MainPageButton" Grid.Column="0" Content="Main" Background="#FFA5A5A5"/>
+        <Button Name="CurrencyDetailsButton" Grid.Column="1" Content="Details" Click="MoveToCurrencyDetailsPage"/>
+        <Button Grid.Column="2"/>
+        <Button Grid.Column="3"/>
+        <ComboBox Name="currenciesAmountComboBox" Grid.ColumnSpan="1" Margin="10" SelectedIndex="0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="25"/>
+            <ComboBoxItem Content="50"/>
+            <ComboBoxItem Content="75"/>
+            <ComboBoxItem Content="99"/>
+        </ComboBox>
+        <Label Content="Amount" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="20"/>
+    </Grid>
+</Page>
