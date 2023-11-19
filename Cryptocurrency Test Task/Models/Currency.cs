@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace Cryptocurrency_Test_Task.Models
@@ -68,6 +69,7 @@ namespace Cryptocurrency_Test_Task.Models
             }
         }
         public string InfoForListBox => $"{Rank}: {Name}";
+        public string InfoForDetailsLabel => $"Name: {Name}\nPrice: {PriceUsd.Substring(0, PriceUsd.Length - 10)}$\nVolume: {VolumeUsd24Hr.Substring(0, VolumeUsd24Hr.Length - 6)}\nPrice change: {ChangePercent24Hr.Substring(0, ChangePercent24Hr.Length - 10)}%";
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

@@ -22,9 +22,13 @@
         </Grid.RowDefinitions>
         <Button Name="MainPageButton" Grid.Column="0" Content="Main" Click="MoveToMainPage"/>
         <Button Name="CurrencyDetailsButton" Grid.Column="1" Content="Details" Background="#FFA5A5A5"/>
-        <Button Grid.Column="2"/>
+        <Button Name="ExchangePageButton" Content="Exchange" Grid.Column="2" Click="MoveToExchangePage" />
         <Button Grid.Column="3"/>
         <ListBox Name="MarketInfoListBox" HorizontalContentAlignment="Center" ItemsSource="{Binding Path=Markets}" Grid.Row="2" Grid.Column="1"/>
-        <Label Name="CurrencyDetailsLabel" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalContentAlignment="Left" Grid.Column="2" Grid.Row="2" FontSize="22"/>
+        <Label Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Markets list:" FontSize="22"/>
+        <TextBox Name="CurrencyDetailsTextBox" Text="{Binding Path=InfoForDetailsLabel, Mode=OneWay}" BorderThickness="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalContentAlignment="Left" Grid.Column="2" Grid.Row="2" FontSize="22" IsReadOnly="True"/>
+        <Label Content="Choose currencies:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" Grid.Column="0" Grid.Row="1"/>
+        <ComboBox Name="CurrencyFilterComboBox" SelectedIndex="0" SelectedValue="{Binding SelectedBox, Mode=OneWayToSource}" VerticalAlignment="Top" Margin="10" Grid.Column="0" Grid.Row="2" Width="120" Height="25" ItemsSource="{Binding availableCurrencies}" SelectionChanged="FilterCurrency_SelectionChanged">
+        </ComboBox>
     </Grid>
 </Page>

@@ -13,7 +13,7 @@ namespace Cryptocurrency_Test_Task.ViewModels
         private readonly ICollection<Currency> currencies = new ObservableCollection<Currency>();
 
         public IEnumerable<Currency> Currencies => currencies;
-        public Currency SelectedCurrency { get; set; }
+        public Currency? SelectedCurrency { get; set; }
         public void AddCurrency(Currency c)
         {
             currencies.Add(c);
@@ -21,6 +21,17 @@ namespace Cryptocurrency_Test_Task.ViewModels
         public void ClearCurrencies()
         {
             currencies.Clear();
+        }
+        public Currency GetFirstCurrency()
+        {
+            if (currencies.Count == 0)
+            {
+                return new Currency();
+            }
+            else
+            {
+                return currencies.First<Currency>();
+            }
         }
     }
 }

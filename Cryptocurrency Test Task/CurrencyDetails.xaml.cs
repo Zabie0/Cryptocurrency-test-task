@@ -3,8 +3,10 @@ using Cryptocurrency_Test_Task.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,20 +26,46 @@ namespace Cryptocurrency_Test_Task
     /// </summary>
     public partial class CurrencyDetails : Page
     {
+        public Currency selectedCurrency;
         private MarketViewModel viewModel;
-        private HttpClient httpClient;
-        public CurrencyDetails(string currencyName, string price, string volume, string priceChange)
+        private MarketViewModel filteredMarkets;
+        private string selectedBox;
+        public string SelectedBox
         {
+            get { return selectedBox; }
+            set
+            {
+                selectedBox = value;
+                OnPropertyChanged("SelectedBox");
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+        public List<string> availableCurrencies { get; set; }
+        private HttpClient httpClient;
+        public CurrencyDetails(Currency passedCurrency)
+        {
+            selectedCurrency = passedCurrency;
             viewModel = new MarketViewModel();
+            filteredMarkets = new MarketViewModel();
+            availableCurrencies = new List<string>();
             httpClient = new HttpClient();
             InitializeComponent();
-            GetCurrencyMarketsAPI(currencyName);
-            ShowCurrencyInfo(price, volume, priceChange);
+            GetCurrencyMarketsAPI(selectedCurrency.Id);
         }
         void MoveToMainPage(Object sender, EventArgs e)
         {
             NavigationService ns = NavigationService.GetNavigationService(this);
             ns.Navigate(new MainPage());
+        }
+        void MoveToExchangePage(Object sender, EventArgs e)
+        {
+            NavigationService ns = NavigationService.GetNavigationService(this);
+            ns.Navigate(new ExchangePage());
         }
         private async void GetCurrencyMarketsAPI(string currencyName)
         {
@@ -45,21 +73,24 @@ namespace Cryptocurrency_Test_Task
             {
                 string responseBody = await httpClient.GetStringAsync($"https://api.coincap.io/v2/markets?baseId={currencyName}");
                 var list = JsonConvert.DeserializeObject<MarketRootList>(responseBody).Data;
+                availableCurrencies.Add("All");
                 foreach (Market market in list)
                 {
-                    if (market.QuoteSymbol.Equals("USD"))
+                    viewModel.AddMarket(market);
+                    if (!availableCurrencies.Contains(market.QuoteSymbol))
                     {
-                        market.PriceUsd = market.PriceUsd.Substring(0, market.PriceUsd.Length - 13);
-                        viewModel.AddMarket(market);
+                        availableCurrencies.Add(market.QuoteSymbol);
                     }
-                    MarketInfoListBox.DisplayMemberPath = nameof(Market.MarketsForListBox);
                 }
+                MarketInfoListBox.DisplayMemberPath = nameof(Market.MarketsForListBox);
                 if (viewModel.CountMarkets() == 0)
                 {
                     viewModel.AddMarket(new Market());
                     MarketInfoListBox.DisplayMemberPath = nameof(Market.NoMarketsFound);
                 }
-                this.DataContext = viewModel;
+                CurrencyDetailsTextBox.DataContext = selectedCurrency;
+                CurrencyFilterComboBox.DataContext = this;
+                MarketInfoListBox.DataContext = viewModel;
             }
             catch (HttpRequestException e)
             {
@@ -67,9 +98,26 @@ namespace Cryptocurrency_Test_Task
                 Console.WriteLine("Message :{0} ", e.Message);
             }
         }
-        private void ShowCurrencyInfo(string price, string volume, string priceChange)
+
+        private void FilterCurrency_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CurrencyDetailsLabel.Content = $"Price: {price.Substring(0, price.Length-13)}$\nVolume: {volume.Substring(0, price.Length - 5)}\nPrice change: {priceChange.Substring(0, price.Length - 10)}";
+            if (selectedBox.Equals("All"))
+            {
+                MarketInfoListBox.DataContext = viewModel;
+            }
+            else
+            {
+                filteredMarkets.ClearMarkets();
+                List<Market> tempList = viewModel.GetMarkets();
+                foreach (Market market in tempList)
+                {
+                    if (market.QuoteSymbol.Equals(selectedBox))
+                    {
+                        filteredMarkets.AddMarket(market);
+                    }
+                }
+                MarketInfoListBox.DataContext = filteredMarkets;
+            }
         }
     }
 }

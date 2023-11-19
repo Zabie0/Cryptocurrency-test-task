@@ -41,3 +41,5 @@ D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-win
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\CurrencyDetails.baml
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainPage.g.cs
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainPage.baml
+D:\source\Cryptocurrency test task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\ExchangePage.g.cs
+D:\source\Cryptocurrency test task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\ExchangePage.baml

@@ -41,7 +41,17 @@ namespace Cryptocurrency_Test_Task.Models
                 OnPropertyChanged("QuoteSymbol");
             }
         }
-        public string MarketsForListBox => $"{exchangeId}: {priceUsd}$";
+        private string priceQuote;
+        public string PriceQuote
+        {
+            get { return priceQuote; }
+            set
+            {
+                priceQuote = value;
+                OnPropertyChanged("PriceQuote");
+            }
+        }
+        public string MarketsForListBox => $"{exchangeId}: {priceQuote.Substring(0, priceQuote.Length - 10)} {QuoteSymbol}";
         public string NoMarketsFound => "No markets found!";
 
         public event PropertyChangedEventHandler PropertyChanged;

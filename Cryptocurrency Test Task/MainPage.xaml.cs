@@ -69,7 +69,16 @@ namespace Cryptocurrency_Test_Task
         void MoveToCurrencyDetailsPage(Object sender, EventArgs e)
         {
             NavigationService ns = NavigationService.GetNavigationService(this);
-            ns.Navigate(new CurrencyDetails(viewModel.SelectedCurrency.Id, viewModel.SelectedCurrency.PriceUsd, viewModel.SelectedCurrency.VolumeUsd24Hr, viewModel.SelectedCurrency.ChangePercent24Hr));
+            if(viewModel.SelectedCurrency == null)
+            {
+                viewModel.SelectedCurrency = viewModel.GetFirstCurrency();
+            }
+            ns.Navigate(new CurrencyDetails(viewModel.SelectedCurrency));
+        }
+        void MoveToExchangePage(Object sender, EventArgs e)
+        {
+            NavigationService ns = NavigationService.GetNavigationService(this);
+            ns.Navigate(new ExchangePage());
         }
     }
 }

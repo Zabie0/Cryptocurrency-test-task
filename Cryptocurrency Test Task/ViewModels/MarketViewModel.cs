@@ -22,5 +22,13 @@ namespace Cryptocurrency_Test_Task.ViewModels
         {
             return markets.Count;
         }
+        public List<Market> GetMarkets()
+        {
+            return markets.ToList<Market>();
+        }
+        public void ClearMarkets()
+        {
+            markets.Clear();
+        }
     }
 }
