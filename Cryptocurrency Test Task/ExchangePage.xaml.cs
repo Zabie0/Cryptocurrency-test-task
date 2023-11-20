@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cryptocurrency_Test_Task.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace Cryptocurrency_Test_Task
         public ExchangePage()
         {
             InitializeComponent();
+        }
+        void NavigateToMainPage(Object sender, EventArgs e)
+        {
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new MainPage());
+        }
+        void NavigateToDetailsPage(Object sender, EventArgs e)
+        {
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new CurrencyDetails(CurrencyViewModel.SelectedCurrency));
+        }
+        void NavigateToSearchPage(Object sender, EventArgs e)
+        {
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new SearchPage());
+        }
+        private NavigationService GetNav()
+        {
+            return NavigationService.GetNavigationService(this);
         }
     }
 }

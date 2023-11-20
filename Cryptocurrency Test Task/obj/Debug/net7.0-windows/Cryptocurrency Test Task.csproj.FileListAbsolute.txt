@@ -8,11 +8,9 @@ D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-win
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\bin\Debug\net7.0-windows\Newtonsoft.Json.Bson.dll
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.csproj.AssemblyReference.cache
-D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainWindow.g.cs
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\App.g.cs
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task_MarkupCompile.cache
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task_MarkupCompile.lref
-D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainWindow.baml
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.g.resources
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.GeneratedMSBuildEditorConfig.editorconfig
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\Cryptocurrency Test Task.AssemblyInfoInputs.cache
@@ -43,3 +41,5 @@ D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-win
 D:\source\Cryptocurrency Test Task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\MainPage.baml
 D:\source\Cryptocurrency test task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\ExchangePage.g.cs
 D:\source\Cryptocurrency test task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\ExchangePage.baml
+D:\source\Cryptocurrency test task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\SearchPage.g.cs
+D:\source\Cryptocurrency test task\Cryptocurrency Test Task\obj\Debug\net7.0-windows\SearchPage.baml

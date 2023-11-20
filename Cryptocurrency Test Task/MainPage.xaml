@@ -23,12 +23,12 @@
         <ListBox Name="currencyListBox" ItemsSource="{Binding Path=Currencies}"
              SelectedItem="{Binding Path=SelectedCurrency, Mode=OneWayToSource}"
              Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"></ListBox>
-        <Label Name="currencyListLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Top 10 currencies" FontSize="20"/>
-        <Button Name="MainPageButton" Grid.Column="0" Content="Main" Background="#FFA5A5A5"/>
-        <Button Name="CurrencyDetailsButton" Grid.Column="1" Content="Details" Click="MoveToCurrencyDetailsPage"/>
-        <Button Name="ExchangePageButton" Content="Exchange" Grid.Column="2"/>
-        <Button Grid.Column="3"/>
-        <ComboBox Name="currenciesAmountComboBox" Grid.ColumnSpan="1" Margin="10" SelectedIndex="0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+        <Label Name="CurrencyListLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Top 10 currencies:" FontSize="20"/>
+        <Button Name="MainPageButton" Grid.Column="0" Content="Main" Background="#FFA5A5A5" FontSize="22"/>
+        <Button Name="CurrencyDetailsButton" Grid.Column="1" Content="Details" Click="NavigateToCurrencyDetailsPage" FontSize="22"/>
+        <Button Name="ExchangePageButton" Content="Exchange" Grid.Column="2" Click="NavigateToExchangePage" FontSize="22"/>
+        <Button Name="SearchPageButton" Grid.Column="3" FontSize="22" Content="Search" Click="NavigateToSearchPage"/>
+        <ComboBox Name="CurrenciesAmountComboBox" Grid.ColumnSpan="1" Margin="10" SelectedIndex="0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="10"/>
             <ComboBoxItem Content="25"/>
             <ComboBoxItem Content="50"/>

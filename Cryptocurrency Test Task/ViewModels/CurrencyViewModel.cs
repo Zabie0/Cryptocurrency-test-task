@@ -13,7 +13,7 @@ namespace Cryptocurrency_Test_Task.ViewModels
         private readonly ICollection<Currency> currencies = new ObservableCollection<Currency>();
 
         public IEnumerable<Currency> Currencies => currencies;
-        public Currency? SelectedCurrency { get; set; }
+        public static Currency? SelectedCurrency { get; set; }
         public void AddCurrency(Currency c)
         {
             currencies.Add(c);

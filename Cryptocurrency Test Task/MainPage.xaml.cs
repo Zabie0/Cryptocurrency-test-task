@@ -3,9 +3,11 @@ using Cryptocurrency_Test_Task.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +29,22 @@ namespace Cryptocurrency_Test_Task
     {
         private CurrencyViewModel viewModel;
         private HttpClient httpClient;
+        private string selectedBox;
+        public string SelectedBox
+        {
+            get { return selectedBox; }
+            set
+            {
+                selectedBox = value;
+                OnPropertyChanged("SelectedBox");
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
         public MainPage()
         {
             viewModel = new CurrencyViewModel();
@@ -50,8 +68,9 @@ namespace Cryptocurrency_Test_Task
 
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectedItem = (ComboBoxItem)currenciesAmountComboBox.SelectedItem;
+            ComboBoxItem selectedItem = (ComboBoxItem)CurrenciesAmountComboBox.SelectedItem;
             int amount = Int32.Parse(selectedItem.Content.ToString());
+            CurrencyListLabel.Content = $"Top {amount} currencies:";
             string responseBody = await httpClient.GetStringAsync($"https://api.coincap.io/v2/assets?limit={amount}");
             UpdateList(responseBody);
         }
@@ -66,19 +85,28 @@ namespace Cryptocurrency_Test_Task
             currencyListBox.DisplayMemberPath = nameof(Currency.InfoForListBox);
             this.DataContext = viewModel;
         }
-        void MoveToCurrencyDetailsPage(Object sender, EventArgs e)
+        void NavigateToCurrencyDetailsPage(Object sender, EventArgs e)
         {
-            NavigationService ns = NavigationService.GetNavigationService(this);
-            if(viewModel.SelectedCurrency == null)
-            {
-                viewModel.SelectedCurrency = viewModel.GetFirstCurrency();
-            }
-            ns.Navigate(new CurrencyDetails(viewModel.SelectedCurrency));
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new CurrencyDetails(CurrencyViewModel.SelectedCurrency));
         }
-        void MoveToExchangePage(Object sender, EventArgs e)
+        void NavigateToExchangePage(Object sender, EventArgs e)
         {
-            NavigationService ns = NavigationService.GetNavigationService(this);
-            ns.Navigate(new ExchangePage());
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new ExchangePage());
+        }
+        void NavigateToSearchPage(Object sender, EventArgs e)
+        {
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new SearchPage());
+        }
+        private NavigationService GetNav()
+        {
+            if(CurrencyViewModel.SelectedCurrency == null)
+            {
+                CurrencyViewModel.SelectedCurrency = viewModel.GetFirstCurrency();
+            }
+            return NavigationService.GetNavigationService(this);
         }
     }
 }

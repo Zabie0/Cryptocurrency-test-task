@@ -57,15 +57,24 @@ namespace Cryptocurrency_Test_Task
             InitializeComponent();
             GetCurrencyMarketsAPI(selectedCurrency.Id);
         }
-        void MoveToMainPage(Object sender, EventArgs e)
+        void NavigateToMainPage(Object sender, EventArgs e)
         {
-            NavigationService ns = NavigationService.GetNavigationService(this);
-            ns.Navigate(new MainPage());
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new MainPage());
         }
-        void MoveToExchangePage(Object sender, EventArgs e)
+        void NavigateToExchangePage(Object sender, EventArgs e)
         {
-            NavigationService ns = NavigationService.GetNavigationService(this);
-            ns.Navigate(new ExchangePage());
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new ExchangePage());
+        }
+        void NavigateToSearchPage(Object sender, EventArgs e)
+        {
+            //NavigationService ns = NavigationService.GetNavigationService(this);
+            GetNav().Navigate(new SearchPage());
+        }
+        private NavigationService GetNav()
+        {
+            return NavigationService.GetNavigationService(this);
         }
         private async void GetCurrencyMarketsAPI(string currencyName)
         {
