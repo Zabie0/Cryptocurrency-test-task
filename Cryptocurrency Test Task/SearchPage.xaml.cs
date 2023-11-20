@@ -21,14 +21,10 @@ using System.Windows.Shapes;
 
 namespace Cryptocurrency_Test_Task
 {
-    /// <summary>
-    /// Interaction logic for SearchPage.xaml
-    /// </summary>
     public partial class SearchPage : Page
     {
         public string searchedText;
         private CurrencyViewModel viewModel;
-        private HttpClient httpClient;
         public string SearchedText
         {
             get { return searchedText; }
@@ -47,23 +43,19 @@ namespace Cryptocurrency_Test_Task
         public SearchPage()
         {
             viewModel = new CurrencyViewModel();
-            httpClient = new HttpClient();
             InitializeComponent();
             SearchTextBox.DataContext = this;
         }
         void NavigateToMainPage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new MainPage());
         }
         void NavigateToDetailsPage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new CurrencyDetails(CurrencyViewModel.SelectedCurrency));
         }
         void NavigateToExchangePage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new ExchangePage());
         }
         private NavigationService GetNav()
@@ -79,7 +71,7 @@ namespace Cryptocurrency_Test_Task
         {
             try
             {
-                string responseBody = await httpClient.GetStringAsync($"https://api.coincap.io/v2/assets/{SearchedText}");
+                string responseBody = await HttpController.httpClient.GetStringAsync($"https://api.coincap.io/v2/assets/{SearchedText}");
                 UpdateList(responseBody);
             }
             catch (HttpRequestException e)

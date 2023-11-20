@@ -21,12 +21,10 @@ using System.Windows.Shapes;
 
 namespace Cryptocurrency_Test_Task
 {
-    /// <summary>
-    /// Interaction logic for CurrencyDetails.xaml
-    /// </summary>
     public partial class CurrencyDetails : Page
     {
         public Currency selectedCurrency;
+        public List<string> availableCurrencies { get; set; }
         private MarketViewModel viewModel;
         private MarketViewModel filteredMarkets;
         private string selectedBox;
@@ -39,37 +37,25 @@ namespace Cryptocurrency_Test_Task
                 OnPropertyChanged("SelectedBox");
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-        public List<string> availableCurrencies { get; set; }
-        private HttpClient httpClient;
         public CurrencyDetails(Currency passedCurrency)
         {
             selectedCurrency = passedCurrency;
             viewModel = new MarketViewModel();
             filteredMarkets = new MarketViewModel();
             availableCurrencies = new List<string>();
-            httpClient = new HttpClient();
             InitializeComponent();
             GetCurrencyMarketsAPI(selectedCurrency.Id);
         }
         void NavigateToMainPage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new MainPage());
         }
         void NavigateToExchangePage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new ExchangePage());
         }
         void NavigateToSearchPage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new SearchPage());
         }
         private NavigationService GetNav()
@@ -80,7 +66,7 @@ namespace Cryptocurrency_Test_Task
         {
             try
             {
-                string responseBody = await httpClient.GetStringAsync($"https://api.coincap.io/v2/markets?baseId={currencyName}");
+                string responseBody = await HttpController.httpClient.GetStringAsync($"https://api.coincap.io/v2/markets?baseId={currencyName}");
                 var list = JsonConvert.DeserializeObject<MarketRootList>(responseBody).Data;
                 availableCurrencies.Add("All");
                 foreach (Market market in list)
@@ -127,6 +113,12 @@ namespace Cryptocurrency_Test_Task
                 }
                 MarketInfoListBox.DataContext = filteredMarkets;
             }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

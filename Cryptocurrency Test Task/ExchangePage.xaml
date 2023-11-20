@@ -24,10 +24,12 @@
         <Button Name="CurrencyDetailsButton" Grid.Column="1" Content="Details" FontSize="22" Click="NavigateToDetailsPage"/>
         <Button Name="ExchangePageButton" Content="Exchange" Grid.Column="2" Background="#FFA5A5A5" FontSize="22"/>
         <Button Name="SearchPageButton" Grid.Column="3" FontSize="22" Content="Search" Click="NavigateToSearchPage"/>
-        <ComboBox Grid.Column="1" Name="CurrencyComboBox" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Convert" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Top" Grid.Row="2" Margin="0,0,20,0" FontSize="22"/>
+        <ComboBox Grid.Column="1" ItemsSource="{Binding availableCurrencies}" SelectedValue="{Binding CurrencyFrom, Mode=OneWayToSource}" Name="CurrencyFromComboBox" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectionChanged="CurrencyFromComboBox_SelectionChanged"/>
+        <ComboBox Grid.Column="2" ItemsSource="{Binding availableCurrencies}" SelectedValue="{Binding CurrencyTo, Mode=OneWayToSource}" Name="CurrencyToComboBox" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectionChanged="CurrencyToComboBox_SelectionChanged"/>
+        <Label Content="Convert" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Top" Grid.Row="2" Margin="0,0,250,0" FontSize="22"/>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=CurrencyAmount, Mode=OneWayToSource}" Grid.ColumnSpan="2" VerticalAlignment="Top" Grid.Row="2" Margin="0,10,50,0" FontSize="15" Width="100"/>
         <Label Content="to" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" Margin="0,0,0,0" FontSize="22"/>
+        <TextBox Name="ExchangeResult" FontSize="22" Text="{Binding Path=ExchangeInfo, Mode=OneWay}" IsReadOnly="True" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="40" HorizontalContentAlignment="Center"/>
     </Grid>
     
 </Page>

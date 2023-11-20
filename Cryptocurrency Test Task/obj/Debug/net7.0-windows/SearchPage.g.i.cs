@@ -101,7 +101,7 @@ namespace Cryptocurrency_Test_Task {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Cryptocurrency Test Task;V1.0.0.0;component/searchpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Cryptocurrency Test Task;component/searchpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SearchPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

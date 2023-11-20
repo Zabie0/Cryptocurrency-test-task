@@ -10,7 +10,7 @@ namespace Cryptocurrency_Test_Task
 {
     public class HttpController : ApiController
     {
-        private static readonly HttpClient httpClient;
+        public static readonly HttpClient httpClient;
 
         static HttpController()
         {

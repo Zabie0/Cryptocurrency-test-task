@@ -22,13 +22,9 @@ using System.Windows.Shapes;
 
 namespace Cryptocurrency_Test_Task
 {
-    /// <summary>
-    /// Interaction logic for MainPage.xaml
-    /// </summary>
     public partial class MainPage : Page
     {
         private CurrencyViewModel viewModel;
-        private HttpClient httpClient;
         private string selectedBox;
         public string SelectedBox
         {
@@ -48,7 +44,6 @@ namespace Cryptocurrency_Test_Task
         public MainPage()
         {
             viewModel = new CurrencyViewModel();
-            httpClient = new HttpClient();
             InitializeComponent();
             GetAllAssetsAPIAsync();
         }
@@ -56,7 +51,7 @@ namespace Cryptocurrency_Test_Task
         {
             try
             {
-                string responseBody = await httpClient.GetStringAsync("https://api.coincap.io/v2/assets?limit=10");
+                string responseBody = await HttpController.httpClient.GetStringAsync("https://api.coincap.io/v2/assets?limit=10");
                 UpdateList(responseBody);
             }
             catch (HttpRequestException e)
@@ -71,7 +66,7 @@ namespace Cryptocurrency_Test_Task
             ComboBoxItem selectedItem = (ComboBoxItem)CurrenciesAmountComboBox.SelectedItem;
             int amount = Int32.Parse(selectedItem.Content.ToString());
             CurrencyListLabel.Content = $"Top {amount} currencies:";
-            string responseBody = await httpClient.GetStringAsync($"https://api.coincap.io/v2/assets?limit={amount}");
+            string responseBody = await HttpController.httpClient.GetStringAsync($"https://api.coincap.io/v2/assets?limit={amount}");
             UpdateList(responseBody);
         }
         private void UpdateList(string responseBody)
@@ -87,17 +82,14 @@ namespace Cryptocurrency_Test_Task
         }
         void NavigateToCurrencyDetailsPage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new CurrencyDetails(CurrencyViewModel.SelectedCurrency));
         }
         void NavigateToExchangePage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new ExchangePage());
         }
         void NavigateToSearchPage(Object sender, EventArgs e)
         {
-            //NavigationService ns = NavigationService.GetNavigationService(this);
             GetNav().Navigate(new SearchPage());
         }
         private NavigationService GetNav()

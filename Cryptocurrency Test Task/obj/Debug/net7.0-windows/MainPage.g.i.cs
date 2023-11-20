@@ -109,7 +109,7 @@ namespace Cryptocurrency_Test_Task {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Cryptocurrency Test Task;V1.0.0.0;component/mainpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Cryptocurrency Test Task;component/mainpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\MainPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
