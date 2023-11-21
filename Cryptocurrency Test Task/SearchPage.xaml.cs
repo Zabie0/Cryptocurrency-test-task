@@ -84,9 +84,12 @@ namespace Cryptocurrency_Test_Task
         {
             viewModel.ClearCurrencies();
             var list = JsonConvert.DeserializeObject<CurrencyRootList>(responseBody).Data;
-            foreach(Currency curr in list)
+            foreach (Currency curr in list)
             {
-                if(curr.Name.ToLower().Contains(SearchedText.ToLower())) viewModel.AddCurrency(curr);
+                if (curr.Name.ToLower().Contains(SearchedText.ToLower()) || curr.Symbol.ToLower().Contains(SearchedText.ToLower()))
+                {
+                    viewModel.AddCurrency(curr);
+                }
             }
             CurrenciesListBox.DisplayMemberPath = nameof(Currency.InfoForListBox);
             this.DataContext = viewModel;

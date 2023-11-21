@@ -68,6 +68,16 @@ namespace Cryptocurrency_Test_Task.Models
                 OnPropertyChanged("ChangePercent24Hr");
             }
         }
+        private string symbol;
+        public string Symbol
+        {
+            get { return symbol; }
+            set
+            {
+                symbol = value;
+                OnPropertyChanged("Symbol");
+            }
+        }
         public string InfoForListBox => $"{Rank}: {Name}";
         public string InfoForDetailsLabel => $"Name: {Name}\nPrice: {PriceUsd.Substring(0, PriceUsd.Length - 10)}$\nVolume: {VolumeUsd24Hr.Substring(0, VolumeUsd24Hr.Length - 6)}\nPrice change: {ChangePercent24Hr.Substring(0, ChangePercent24Hr.Length - 10)}%";
 

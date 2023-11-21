@@ -24,7 +24,7 @@
         <Button Name="CurrencyDetailsButton" Grid.Column="1" Content="Details" Click="NavigateToDetailsPage" FontSize="22"/>
         <Button Name="ExchangePageButton" Content="Exchange" Grid.Column="2" Background="#FFDDDDDD" Click="NavigateToExchangePage" FontSize="22"/>
         <Button Name="SearchPageButton" Grid.Column="3" Background="#FFA5A5A5" Content="Search" FontSize="22"/>
-        <Label Content="Enter currency name:" Grid.Row="1" Grid.Column="0" FontSize="20" HorizontalAlignment="Center"/>
+        <Label Content="Enter currency name/code:" Grid.Row="1" Grid.Column="0" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Content="Search results:" Grid.Row="1" Grid.Column="1" FontSize="20" HorizontalAlignment="Center"/>
         <TextBox Name="SearchTextBox" Margin="10" Grid.Row="2" Text="{Binding Path=SearchedText, Mode=OneWayToSource}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ListBox Name="CurrenciesListBox" ItemsSource="{Binding Path=Currencies}"
