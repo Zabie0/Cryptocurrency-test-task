@@ -71,7 +71,7 @@ namespace Cryptocurrency_Test_Task
         {
             try
             {
-                string responseBody = await HttpController.httpClient.GetStringAsync($"https://api.coincap.io/v2/assets/{SearchedText}");
+                string responseBody = await HttpController.httpClient.GetStringAsync($"https://api.coincap.io/v2/assets/");
                 UpdateList(responseBody);
             }
             catch (HttpRequestException e)
@@ -83,8 +83,11 @@ namespace Cryptocurrency_Test_Task
         private void UpdateList(string responseBody)
         {
             viewModel.ClearCurrencies();
-            var curr = JsonConvert.DeserializeObject<CurrencyRoot>(responseBody).Data;
-                viewModel.AddCurrency(curr);
+            var list = JsonConvert.DeserializeObject<CurrencyRootList>(responseBody).Data;
+            foreach(Currency curr in list)
+            {
+                if(curr.Name.ToLower().Contains(SearchedText.ToLower())) viewModel.AddCurrency(curr);
+            }
             CurrenciesListBox.DisplayMemberPath = nameof(Currency.InfoForListBox);
             this.DataContext = viewModel;
         }
